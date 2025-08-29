@@ -126,6 +126,11 @@ const StarWeaver = () => {
         <div className="text-center text-white">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
           <p className="text-lg">Loading your cosmic profile...</p>
+          {!tg && (
+            <p className="text-sm text-purple-300 mt-2">
+              Preview mode loading... ✨
+            </p>
+          )}
         </div>
       </div>
     );
