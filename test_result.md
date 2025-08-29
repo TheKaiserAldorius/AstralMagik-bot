@@ -222,10 +222,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "FastAPI server with Telegram bot integration"
-    - "Telegram webhook and bot commands"
-    - "OpenAI GPT-4 astrology response generation"
     - "React WebApp with Telegram integration"
+    - "Dashboard with user stats and actions"
+    - "Reading history display"
+    - "User profile management"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
