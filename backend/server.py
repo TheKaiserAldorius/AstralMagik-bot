@@ -196,7 +196,7 @@ What would you like to explore first?"""
 
     await message.answer(welcome_text, reply_markup=keyboard)
 
-@dp.callback_query(lambda c: c.data == "get_reading")
+@dp.callback_query(lambda query: query.data == "get_reading")
 async def process_get_reading(callback_query: types.CallbackQuery):
     """Handle get reading callback"""
     await callback_query.answer()
