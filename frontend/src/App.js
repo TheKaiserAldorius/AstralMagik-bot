@@ -179,6 +179,23 @@ const StarWeaver = () => {
       <div className="max-w-4xl mx-auto px-4 pb-8">
         {activeTab === 'dashboard' && (
           <div className="space-y-6">
+            {/* Demo Info */}
+            {demoMode && (
+              <div className="bg-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-4">
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-blue-200 mb-2">🤖 Демо-режим StarWeaver</h3>
+                  <p className="text-blue-100 text-sm mb-3">
+                    Это предварительный просмотр приложения. Для полного функционала используйте Telegram бот:
+                  </p>
+                  <div className="bg-black/30 rounded-lg p-3 text-left text-sm">
+                    <p className="text-blue-200 mb-1"><strong>1.</strong> Найдите вашего бота в Telegram</p>
+                    <p className="text-blue-200 mb-1"><strong>2.</strong> Отправьте команду /start</p>
+                    <p className="text-blue-200"><strong>3.</strong> Задавайте вопросы и получайте персональные астрологические чтения!</p>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             {/* Welcome Card */}
             <div className="bg-black bg-opacity-20 backdrop-blur-sm rounded-xl border border-purple-500/30 p-6">
               <div className="text-center">
