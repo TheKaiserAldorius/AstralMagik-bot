@@ -344,7 +344,7 @@ async def get_user_readings(telegram_id: int):
     return [AstrologyReading(**reading) for reading in readings]
 
 @api_router.post("/webhook/telegram")
-async def telegram_webhook(request):
+async def telegram_webhook(request: Request):
     """Handle Telegram webhook"""
     try:
         update = types.Update.parse_obj(await request.json())
