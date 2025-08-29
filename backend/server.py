@@ -163,7 +163,7 @@ If no birth data is provided, focus on general guidance and encourage them to sh
         return "I'm having trouble connecting to the cosmic energies right now. Please try again in a moment. ✨"
 
 # Telegram Bot Handlers
-@dp.message(Command("start"))
+@dp.message(CommandStart())
 async def cmd_start(message: types.Message):
     """Handle /start command"""
     user = await get_or_create_user(message.from_user)
