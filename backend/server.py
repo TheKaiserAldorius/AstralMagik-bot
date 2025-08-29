@@ -150,7 +150,7 @@ If no birth data is provided, focus on general guidance and encourage them to sh
 
         client = openai.OpenAI(api_key=OPENAI_API_KEY)
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=400,
             temperature=0.7
