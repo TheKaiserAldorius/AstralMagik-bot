@@ -187,7 +187,7 @@ class StarWeaverTester:
                 }
             }
             
-            # Test POST /webhook/telegram
+            # Test POST /webhook/telegram (main app endpoint)
             async with self.session.post(f"{BACKEND_URL}/webhook/telegram", json=mock_update) as response:
                 if response.status == 200:
                     result = await response.json()
