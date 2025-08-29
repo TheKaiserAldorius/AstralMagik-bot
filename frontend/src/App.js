@@ -210,10 +210,10 @@ const StarWeaver = () => {
               <h3 className="text-xl font-bold text-white mb-4">🌟 Quick Actions</h3>
               <div className="grid grid-cols-1 gap-3">
                 <button 
-                  onClick={() => tg?.close()}
+                  onClick={() => demoMode ? alert('Для задавания вопросов используйте бота в Telegram!') : tg?.close()}
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all"
                 >
-                  ✨ Ask a Question in Chat
+                  ✨ {demoMode ? 'Задать вопрос боту (Telegram)' : 'Ask a Question in Chat'}
                 </button>
                 <button 
                   onClick={() => setActiveTab('readings')}
