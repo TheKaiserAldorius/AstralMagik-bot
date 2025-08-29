@@ -347,7 +347,12 @@ async def get_user_readings(telegram_id: int):
 async def telegram_webhook(request: Request):
     """Handle Telegram webhook"""
     try:
-        update = types.Update.parse_obj(await request.json())
+        json_data = await request.json()
+        update = types.Update(**json_data)
+        
+        # Log incoming update for debugging
+        logger.info(f"Received update: {update.update_id} from user {update.message.from_user.id if update.message else 'unknown'}")
+        
         await dp.feed_update(bot, update)
         return {"ok": True}
     except Exception as e:
