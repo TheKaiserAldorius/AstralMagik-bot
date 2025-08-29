@@ -144,8 +144,11 @@ const StarWeaver = () => {
           <h1 className="text-2xl font-bold text-white flex items-center">
             <span className="text-3xl mr-2">🌟</span>
             StarWeaver
+            {demoMode && <span className="ml-2 text-xs bg-purple-600 px-2 py-1 rounded">DEMO</span>}
           </h1>
-          <p className="text-purple-200 text-sm">Your Personal AI Astrologer</p>
+          <p className="text-purple-200 text-sm">
+            {demoMode ? "Demo Preview - Connect via Telegram for full features" : "Your Personal AI Astrologer"}
+          </p>
         </div>
       </div>
 
