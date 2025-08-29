@@ -359,7 +359,7 @@ app.include_router(api_router)
 
 # Add Telegram webhook endpoint to main app
 @app.post("/webhook/telegram")
-async def telegram_webhook_main(request):
+async def telegram_webhook_main(request: Request):
     return await telegram_webhook(request)
 
 app.add_middleware(
