@@ -225,7 +225,7 @@ async def process_get_reading(callback_query: types.CallbackQuery):
     await callback_query.message.answer(f"🌟 *Your StarWeaver Reading* ✨\n\n{reading}", 
                                        parse_mode="Markdown", reply_markup=keyboard)
 
-@dp.callback_query(lambda c: c.data == "set_birth_data")
+@dp.callback_query(lambda query: query.data == "set_birth_data")
 async def process_set_birth_data(callback_query: types.CallbackQuery):
     """Handle set birth data callback"""
     await callback_query.answer()
