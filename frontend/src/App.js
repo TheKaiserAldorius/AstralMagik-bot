@@ -13,6 +13,7 @@ const StarWeaver = () => {
   const [readings, setReadings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [demoMode, setDemoMode] = useState(false);
 
   useEffect(() => {
     // Initialize Telegram WebApp
@@ -24,7 +25,66 @@ const StarWeaver = () => {
       const telegramUser = tg.initDataUnsafe?.user;
       if (telegramUser) {
         fetchUserData(telegramUser.id);
+      } else {
+        // No telegram user data, enable demo mode after delay
+        setTimeout(() => {
+          setDemoMode(true);
+          setUser({
+            telegram_id: 999999999,
+            first_name: "Demo User",
+            username: "demo_user"
+          });
+          setReadings([
+            {
+              id: "demo1",
+              question: "What does my future hold in love?",
+              reading: "The stars reveal that Venus is entering your romantic sector, bringing opportunities for deep connection. Your heart chakra is opening to new possibilities. Trust your intuition and be open to unexpected encounters. The universe is aligning to bring you the love you deserve. ✨💕",
+              created_at: new Date().toISOString()
+            },
+            {
+              id: "demo2", 
+              question: "Should I change my career path?",
+              reading: "Mars in your career sector suggests it's time for bold action. Your natal chart shows strong leadership qualities that are ready to emerge. The cosmic energies support professional growth and new ventures. Listen to your inner voice - it knows the path to your true calling. 🌟",
+              created_at: new Date(Date.now() - 24*60*60*1000).toISOString()
+            }
+          ]);
+          setLoading(false);
+        }, 2000);
       }
+    } else {
+      // No Telegram WebApp, enable demo mode immediately
+      setTimeout(() => {
+        setDemoMode(true);
+        setUser({
+          telegram_id: 999999999,
+          first_name: "Demo User",
+          username: "demo_user",
+          birth_date: "1995-08-15",
+          birth_time: "14:30",
+          birth_place: "Moscow, Russia"
+        });
+        setReadings([
+          {
+            id: "demo1",
+            question: "What does my future hold in love?",
+            reading: "The stars reveal that Venus is entering your romantic sector, bringing opportunities for deep connection. Your heart chakra is opening to new possibilities. Trust your intuition and be open to unexpected encounters. The universe is aligning to bring you the love you deserve. ✨💕",
+            created_at: new Date().toISOString()
+          },
+          {
+            id: "demo2", 
+            question: "Should I change my career path?",
+            reading: "Mars in your career sector suggests it's time for bold action. Your natal chart shows strong leadership qualities that are ready to emerge. The cosmic energies support professional growth and new ventures. Listen to your inner voice - it knows the path to your true calling. 🌟",
+            created_at: new Date(Date.now() - 24*60*60*1000).toISOString()
+          },
+          {
+            id: "demo3",
+            question: "How can I find inner peace?",
+            reading: "Mercury retrograde in your spiritual house calls for meditation and self-reflection. The moon's current phase amplifies your intuitive powers. Practice mindfulness and connect with nature. Your spirit guides are sending you messages through synchronicities. Peace comes from within. 🧘‍♀️✨",
+            created_at: new Date(Date.now() - 48*60*60*1000).toISOString()
+          }
+        ]);
+        setLoading(false);
+      }, 1500);
     }
   }, []);
 
