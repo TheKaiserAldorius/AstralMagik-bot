@@ -382,8 +382,15 @@ async def startup_event():
     """Set webhook on startup"""
     try:
         webhook_url = f"{os.environ.get('REACT_APP_BACKEND_URL', WEBAPP_URL)}/webhook/telegram"
+        # Delete existing webhook first
+        await bot.delete_webhook()
+        # Set new webhook
         await bot.set_webhook(webhook_url)
         logger.info(f"Webhook set to: {webhook_url}")
+        
+        # Test bot connection
+        me = await bot.get_me()
+        logger.info(f"Bot connected: @{me.username} (ID: {me.id})")
     except Exception as e:
         logger.error(f"Failed to set webhook: {e}")
 
