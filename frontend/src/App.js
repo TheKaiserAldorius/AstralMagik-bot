@@ -263,10 +263,10 @@ const StarWeaver = () => {
                   Start your cosmic journey by asking your first question in the chat!
                 </p>
                 <button 
-                  onClick={() => tg?.close()}
+                  onClick={() => demoMode ? alert('Для задавания вопросов используйте бота в Telegram!') : tg?.close()}
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-6 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all"
                 >
-                  Ask Your First Question
+                  {demoMode ? 'Задать первый вопрос (Telegram)' : 'Ask Your First Question'}
                 </button>
               </div>
             ) : (
